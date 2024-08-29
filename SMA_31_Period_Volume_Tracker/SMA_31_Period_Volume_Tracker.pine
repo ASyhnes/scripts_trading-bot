@@ -1,0 +1,36 @@
+//@version=5
+indicator("Long-Term Investment Tracker", overlay=true)
+
+// Paramètres
+period_31 = 31
+period_200 = 200
+
+// Prix moyen d'achat sur 31 périodes
+avg_price_31 = ta.sma(close, period_31)
+
+// Prix moyen d'achat sur 200 périodes
+avg_price_200 = ta.sma(close, period_200)
+
+// Suivi des volumes
+var float stablecoin_accumulated = 0.0
+var float stablecoin_inflow = 0.0
+var float stablecoin_outflow = 0.0
+
+if close > open
+    stablecoin_inflow := stablecoin_inflow + volume
+else
+    stablecoin_outflow := stablecoin_outflow + volume
+
+stablecoin_accumulated := stablecoin_inflow - stablecoin_outflow
+
+// Affichage des résultats
+plot(avg_price_31, color=color.blue, title="Prix Moyen d'Achat (31 périodes)")
+plot(avg_price_200, color=color.red, title="Prix Moyen d'Achat (200 périodes)")
+hline(stablecoin_accumulated, "Volume Stablecoin Accumulé", color=color.green)
+plot(stablecoin_inflow, color=color.green, title="Volume Entrant")
+plot(stablecoin_outflow, color=color.red, title="Volume Sortant")
+
+// Label Visualiser les volumes
+label.new(bar_index, high, text="Accum: " + str.tostring(stablecoin_accumulated), color=color.green, textcolor=color.white, style=label.style_label_down, size=size.small)
+label.new(bar_index, low, text="Inflow: " + str.tostring(stablecoin_inflow), color=color.green, textcolor=color.white, style=label.style_label_up, size=size.small)
+label.new(bar_index, low, text="Outflow: " + str.tostring(stablecoin_outflow), color=color.red, textcolor=color.white, style=label.style_label_up, size=size.small)
