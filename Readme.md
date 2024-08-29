@@ -60,6 +60,7 @@ Cette stratégie utilise l'indicateur pour identifier des opportunités d'achat 
    - **Analyse Continue** :
      - Continuer à surveiller l'évolution du prix et des volumes pour affiner la stratégie en fonction des conditions du marché.
 
-## Conclusion
+## Pour résumer
 
-Cette stratégie vise à profiter des phases d'accumulation et de distribution en utilisant un suivi du prix moyen et des flux de stablecoins. Elle est particulièrement adaptée pour les investisseurs à long terme qui cherchent à optimiser leurs entrées et sorties du marché en s'appuyant sur des indicateurs fiables et des signaux de volume.
+Cette stratégie vise à profiter des phases d'accumulation et de distribution en utilisant un suivi du prix moyen et des flux de stablecoins.
+Elle est particulièrement adaptée pour les investisseurs à long terme qui cherchent à optimiser leurs entrées et sorties du marché en s'appuyant sur des indicateurs fiables et des signaux de volume.
